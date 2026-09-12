@@ -1,0 +1,7 @@
+{
+  "name": "NeuroBIN Engine",
+  "description": "NeuroBIN Engine Telemetry Dashboard & Cantor Recursion Telemetry for Node MX-SQ-3000",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
