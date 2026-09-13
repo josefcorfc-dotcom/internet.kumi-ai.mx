@@ -98,6 +98,71 @@ fun DashboardScreen(viewModel: NeurobinViewModel) {
             }
         }
 
+        // KUMI Engine v2.0 Status Card
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = NeuroCard),
+            border = BorderStroke(1.dp, NeuroCyan.copy(alpha = 0.5f))
+        ) {
+            Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "KUMI ENGINE v2.0 // 97.50 GHz",
+                        fontFamily = FontFamily.Monospace,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = NeuroCyan
+                    )
+                    Surface(
+                        color = NeuroCyan.copy(alpha = 0.15f),
+                        shape = RoundedCornerShape(6.dp)
+                    ) {
+                        Text(
+                            text = "IP: 10.ℵ₁.5.50",
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                            fontFamily = FontFamily.Monospace,
+                            fontSize = 10.sp,
+                            color = NeuroCyan,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                }
+
+                Text(
+                    text = "Operator: J.F. Cantoriano Leyva (CALF8712186T5) • San Quintín",
+                    fontFamily = FontFamily.Monospace,
+                    fontSize = 10.sp,
+                    color = NeuroText.copy(alpha = 0.8f)
+                )
+
+                Spacer(modifier = Modifier.height(4.dp))
+
+                // Stream rows
+                val streams = listOf(
+                    Triple("Kumi ai.mx", "HEVC 8K@60fps", "Stable"),
+                    Triple("Google Cloud", "SRT AES-256", "0.048ms"),
+                    Triple("YouTube", "Multimodal API", "Verified"),
+                    Triple("META ENT", "Gateway SRT", "0.115ms")
+                )
+
+                streams.forEach { (entity, proto, lat) ->
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(text = "• $entity", fontFamily = FontFamily.Monospace, fontSize = 11.sp, color = NeuroText)
+                        Text(text = proto, fontFamily = FontFamily.Monospace, fontSize = 11.sp, color = NeuroCyan)
+                        Text(text = lat, fontFamily = FontFamily.Monospace, fontSize = 11.sp, color = NeuroGreen)
+                    }
+                }
+            }
+        }
+
         // Top 4 Metrics Grid
         val gridItems = listOf(
             Triple("BIO-SYNC RATIO", "${String.format("%.2f", bioSyncRatio)}%", NeuroGreen),
